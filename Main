@@ -1,0 +1,31 @@
+__author__ = 'ilap'
+
+import os.path
+
+'''
+Find gene of Rhodopsin protein in Uniprot
+    = Download database from Uniprot. If it's already downloaded skipp it.
+    = Search for rho in database and downloade them as Fasta.
+
+Alignment
+    = MSA? Clustal or TCoffeee or Muscle.
+Consensus
+    =
+Visualise
+    = Tree
+    = Heatmap
+'''
+
+class Uniprot():
+    is_donwloaded = False
+
+    def __init__(self, database_path):
+        if not os.path.isfile(database_path):
+            try:
+                fd = open(database_path,mode='r')
+
+            except Exception as e:
+                print "Usage: python {} [path to fasta file or use default]".format(sys.argv[0])
+                print
+                print "Error during read \"{}\" file: {}".format(sid_file, e)
+                exit(1)
